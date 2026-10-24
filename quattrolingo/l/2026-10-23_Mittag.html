@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Französisch 23.10. Mittag</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2330;--mu:#6b7385;--ac:#3b6cf6;--ok:#1f9d55;--bad:#d64545;--bd:#dde2ec}
+body.dark{--bg:#12151c;--card:#1c212b;--tx:#e8ebf2;--mu:#98a1b3;--ac:#6f93ff;--ok:#3ccf7d;--bad:#ff6b6b;--bd:#2c3340}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.4 system-ui,sans-serif}
+header{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--bd);padding:8px 12px;display:flex;gap:8px;align-items:center;font-size:14px;z-index:2}
+header b{color:var(--ac)}.sp{flex:1}
+#bar{height:5px;background:var(--bd)}#bar i{display:block;height:100%;background:var(--ac);width:0;transition:.3s}
+main{max-width:520px;margin:0 auto;padding:14px 14px 120px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{font-size:19px;margin:0 0 6px}.q{font-size:18px;margin:6px 0}.mu{color:var(--mu);font-size:14px}.rs{color:var(--mu);font-style:italic;font-size:14px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:12px;min-height:48px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--card))}
+.tiles{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tile{padding:8px 12px;min-height:44px}
+.slot{min-height:56px;border:2px dashed var(--bd);border-radius:12px;padding:6px;display:flex;flex-wrap:wrap;gap:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid button{min-height:52px}.sel{border-color:var(--ac);border-width:2px}.done{opacity:.35;pointer-events:none}.flash{border-color:var(--bad)}
+.foot{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);padding:10px 14px;display:flex;gap:8px}
+.foot button{flex:1}.pri{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:600}
+.fb{border-radius:12px;padding:10px;margin-top:8px}.fb.ok{background:color-mix(in srgb,var(--ok) 15%,var(--card))}.fb.bad{background:color-mix(in srgb,var(--bad) 15%,var(--card))}
+.big{width:100%;font-size:19px;padding:16px}textarea{width:100%;height:170px;font:13px monospace;background:var(--card);color:var(--tx)}
+.rc{border-left:4px solid var(--ac);padding-left:10px;margin:10px 0}.rc b{font-size:18px}table{width:100%;border-collapse:collapse;font-size:16px}td{padding:4px 2px;border-bottom:1px solid var(--bd)}
+</style></head><body>
+<header><span>XP Woche <b id="xw">0</b></span><span>Gesamt <b id="xg">0</b></span><span>🔥 <b id="st">1</b> <span class="mu">Tage</span></span><span class="sp"></span><button id="dm" style="min-height:36px;padding:4px 10px">🌓</button></header>
+<div id="bar"><i></i></div>
+<main id="view"></main>
+<div class="foot" id="foot"></div>
+<script>(function(){var ok=true;try{var t=window.localStorage;t.setItem("_t","1");t.removeItem("_t")}catch(e){ok=false}if(!ok){var m={};var f={getItem:function(k){return k in m?m[k]:null},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]},clear:function(){m={}}};try{Object.defineProperty(window,"localStorage",{value:f,configurable:true})}catch(e){window.__ls=f}}})();</script><script>
+function RZ(z,arr,redraw,off){if(!document.getElementById("rzcss")){const c=document.createElement("style");c.id="rzcss";c.textContent=".rzs{outline:3px solid #4f6bff;outline-offset:1px}.rzb{box-shadow:-5px 0 0 #4f6bff}.rze{box-shadow:5px 0 0 #4f6bff}.rzg{position:fixed;z-index:99;pointer-events:none;opacity:.9;transform:scale(1.08);margin:0}.rzh{font-size:.8rem;opacity:.65;margin:2px 0 0}";document.head.appendChild(c);}
+ if(!z.nextElementSibling||!z.nextElementSibling.classList.contains("rzh")){const h=document.createElement("div");h.className="rzh";h.textContent="Tippen = auswählen · nochmal tippen = zurück · ziehen oder antippen = verschieben";z.after(h);}
+ const cs=[...z.querySelectorAll("button")],no=()=>off&&off();if(z._sel!=null&&z._sel<cs.length)cs[z._sel].classList.add("rzs");else z._sel=null;
+ const mv=(f,t)=>{const it=arr.splice(f,1)[0];arr.splice(t,0,it);z._sel=null;redraw();},rm=n=>{arr.splice(n,1);z._sel=null;redraw();};
+ z.onclick=e=>{if(no()||e.target!==z||z._sel==null)return;mv(z._sel,arr.length-1);};
+ cs.forEach((b,n)=>{b.onclick=null;b.style.touchAction="none";
+  b.onpointerdown=ev=>{if(no()||ev.button>0)return;ev.preventDefault();const sx=ev.clientX,sy=ev.clientY;let g=null,ti=-1;try{b.setPointerCapture(ev.pointerId);}catch(_){}
+   const clr=()=>cs.forEach(c=>c.classList.remove("rzb","rze")),end=()=>{b.onpointermove=b.onpointerup=b.onpointercancel=null;if(g){g.remove();b.style.opacity="";}clr();};
+   const idx=(x,y)=>{let k=0;cs.forEach((c,m)=>{if(m===n)return;const r=c.getBoundingClientRect(),cy=r.top+r.height/2;if(cy<y-r.height/2||(Math.abs(cy-y)<=r.height/2&&r.left+r.width/2<x))k++;});return k;};
+   const inZ=(x,y)=>{const r=z.getBoundingClientRect();return x>=r.left-10&&x<=r.right+10&&y>=r.top-14&&y<=r.bottom+14;};
+   b.onpointermove=e=>{if(!g&&Math.hypot(e.clientX-sx,e.clientY-sy)>8){const r=b.getBoundingClientRect();g=b.cloneNode(true);g.classList.add("rzg");g.classList.remove("rzs");g.style.width=r.width+"px";g._w=r.width/2;g._h=r.height/2;document.body.appendChild(g);b.style.opacity=".3";}
+    if(!g)return;g.style.left=(e.clientX-g._w)+"px";g.style.top=(e.clientY-g._h)+"px";clr();if(inZ(e.clientX,e.clientY)){ti=idx(e.clientX,e.clientY);const o=cs.filter((c,m)=>m!==n);if(o[ti])o[ti].classList.add("rzb");else if(o.length)o[o.length-1].classList.add("rze");}};
+   b.onpointerup=e=>{const d=!!g;end();if(d){if(inZ(e.clientX,e.clientY))mv(n,idx(e.clientX,e.clientY));else rm(n);return;}
+    if(z._sel==null){z._sel=n;b.classList.add("rzs");}else if(z._sel===n)rm(n);else mv(z._sel,n);};
+   b.onpointercancel=end;};});}
+
+"use strict";
+const DATE="2026-10-23",SLOT="Mittag",LID="FR-2026-10-23-T";
+const BASE={week:30,total:30,streak:0}; // aus FR SCORE: nur 21.10. (30 XP); 22.10. und 23.10. Morgen kein Ergebnis eingefügt
+const CARDS={
+s:[["Aujourd'hui, c'est vendredi, je finis plus tôt.","o-schur-dü-i, ßä wang-drö-di, schö fi-ni plü to","Heute ist Freitag, ich höre früher auf."],
+["Ce matin, j'ai rangé mon bureau avant la réunion.","sö ma-täng, schä rang-schee mong bü-ro a-wang la re-ü-njong","Heute Morgen habe ich vor der Besprechung meinen Schreibtisch aufgeräumt."],
+["Cet après-midi, j'appelle un client.","sät a-prä-mi-di, scha-päll äng kli-jang","Heute Nachmittag rufe ich einen Kunden an."],
+["Ce week-end, je vais me reposer un peu.","sö wi-känd, schö wä mö rö-po-see äng pö","Am Wochenende ruhe ich mich ein bisschen aus."]],
+w:[["ranger","rang-schee","aufräumen"],["le bureau","lö bü-ro","der Schreibtisch / das Büro"],["le client","lö kli-jang","der Kunde"],["se reposer","ßö rö-po-see","sich ausruhen"]],
+b:{t:"Avant le week-end, je dois encore …",rs:"a-wang lö wi-känd, schö dwa ang-kor …",de:"Vor dem Wochenende muss ich noch …",v:[["Avant le week-end, je dois encore envoyer le compte rendu.","a-wang lö wi-känd, schö dwa ang-kor ang-wo-jee lö kongt rang-dü","Vor dem Wochenende muss ich noch das Protokoll schicken."],["Avant le week-end, je dois encore appeler ma collègue.","a-wang lö wi-känd, schö dwa ang-kor a-plee ma ko-läg","Vor dem Wochenende muss ich noch meine Kollegin anrufen."]]},
+vb:{inf:["finir","fi-nir","beenden / aufhören"],f:[["je finis","schö fi-ni","ich höre auf"],["tu finis","tü fi-ni","du hörst auf"],["il / elle finit","il / äll fi-ni","er / sie hört auf"],["nous finissons","nu fi-ni-ßong","wir hören auf"],["j'ai fini","schä fi-ni","ich habe beendet"]]},
+tip:"Mittags-Wiederholung, plus alte Stolpersteine: mes (Mehrzahl), a sonné (nicht sonner), imprimé nach n'ai pas encore. Und: ce week-end / ce matin (männlich, Konsonant), cet après-midi (Vokal), cette semaine (weiblich). Und j'envoie (jetzt) vs. j'ai envoyé (vorbei)."};
+const L={1:{title:"Fr 23.10. Mittag – Wiederholung Freitag",ex:[
+{t:"match",p:[["j'ai rangé","schä rang-schee","ich habe aufgeräumt"],["je finis plus tôt","schö fi-ni plü to","ich höre früher auf"],["j'appelle un client","scha-päll äng kli-jang","ich rufe einen Kunden an"],["je vais me reposer","schö wä mö rö-po-see","ich ruhe mich aus"],["avant la réunion","a-wang la re-ü-njong","vor der Besprechung"]]},
+{t:"gap",de:"Heute Nachmittag rufe ich einen Kunden an.",pre:"",post:" après-midi, j'appelle un client.",o:["Ce","Cet","Cette"],c:1,fr:"Cet après-midi, j'appelle un client.",rs:"sät a-prä-mi-di, scha-päll äng kli-jang",why:"après-midi beginnt mit Vokal → cet"},
+{t:"mc",de:"Heute Morgen habe ich meinen Schreibtisch aufgeräumt.",q:"Ce matin, j'___ mon bureau.",o:["range","ai rangé","a rangé","rangeons"],c:1,fr:"Ce matin, j'ai rangé mon bureau.",rs:"sö ma-täng, schä rang-schee mong bü-ro",why:"schon erledigt → j'ai rangé"},
+{t:"order",de:"Heute ist Freitag, ich höre früher auf.",a:["Aujourd'hui,","c'est","vendredi,","je","finis","plus","tôt."],rs:"o-schur-dü-i, ßä wang-drö-di, schö fi-ni plü to"},
+{t:"tiles",rev:true,fr:"Ce week-end, je vais me reposer un peu.",rs:"sö wi-känd, schö wä mö rö-po-see äng pö",de:"Am Wochenende ruhe ich mich ein bisschen aus.",a:["Am","Wochenende","ruhe","ich","mich","ein","bisschen","aus."],x:["Morgen","viel"]},
+{t:"mc",de:"Hast du deine Arbeit beendet?",q:"Tu ___ ton travail ?",o:["finis","as fini","a fini","finissons"],c:1,fr:"Tu as fini ton travail ?",rs:"tü a fi-ni tong tra-waj",why:"du + schon fertig → tu as fini"},
+{t:"gap",de:"Heute Morgen habe ich alle meine E-Mails geschickt.",pre:"Ce matin, j'ai envoyé tous ",post:" e-mails.",o:["mon","ma","mes"],c:2,fr:"Ce matin, j'ai envoyé tous mes e-mails.",rs:"sö ma-täng, schä ang-wo-jee tu mee i-mäll",why:"Mehrzahl → mes (dein Stolperstein: mes chemises)"},
+{t:"mc",de:"Heute Morgen hat der Wecker um sechs Uhr geklingelt.",q:"Ce matin, le réveil ___ à six heures.",o:["sonne","a sonné","sonner"],c:1,fr:"Ce matin, le réveil a sonné à six heures.",rs:"sö ma-täng, lö re-wäj a ßo-nee a ßi-sör",why:"vorbei → a sonné, nicht der Infinitiv sonner"},
+{t:"tiles",de:"Diese Woche habe ich eine Besprechung.",a:["Cette","semaine,","j'ai","une","réunion."],x:["Cet","un"],rs:"sät sö-män, schä ün re-ü-njong"},
+{t:"order",de:"Vor dem Wochenende muss ich noch meine Kollegin anrufen.",a:["Avant","le","week-end,","je","dois","encore","appeler","ma","collègue."],rs:"a-wang lö wi-känd, schö dwa ang-kor a-plee ma ko-läg"},
+{t:"gap",de:"Ich habe das Dokument noch nicht ausgedruckt.",pre:"Je n'ai pas encore ",post:" le document.",o:["imprimer","imprimé","imprime"],c:1,fr:"Je n'ai pas encore imprimé le document.",rs:"schö nä pa ang-kor äng-pri-mee lö do-kü-mang",why:"nach n'ai pas encore → Partizip imprimé (vom Donnerstag)"},
+{t:"match",p:[["je finis","schö fi-ni","ich höre auf"],["tu finis","tü fi-ni","du hörst auf"],["il finit","il fi-ni","er hört auf"],["nous finissons","nu fi-ni-ßong","wir hören auf"],["j'ai fini","schä fi-ni","ich habe beendet"]]}
+]}};
+const K={dm:"frl_dark",res:"fr_res_"+LID};
+let cur=null,i=0,res=[],xp=0,review=false,mainTxt="",fails=[];
+const $=s=>document.querySelector(s),V=$("#view"),F=$("#foot");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TN={match:"Paare",gap:"Lücke",mc:"MC",tiles:"Bausteine",order:"Reihenfolge"};
+if(localStorage.getItem(K.dm)==="1")document.body.classList.add("dark");
+$("#dm").onclick=()=>{document.body.classList.toggle("dark");localStorage.setItem(K.dm,document.body.classList.contains("dark")?"1":"0")};
+function ex(){return review?fails:L[cur].ex}
+function hdr(){$("#xw").textContent=BASE.week+xp;$("#xg").textContent=BASE.total+xp;$("#st").textContent=BASE.streak;$("#bar i").style.width=cur?(100*i/ex().length)+"%":"0"}
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+const line=r=>`<div class="rc"><b>${esc(r[0])}</b><div class="rs">${esc(r[1])}</div><div class="mu">${esc(r[2])}</div></div>`;
+function home(){cur=null;review=false;hdr();const c=CARDS;const saved=localStorage.getItem(K.res);
+V.innerHTML=`<div class="card"><h2>Leise Wiederholung 🤫 Fr 23.10. Mittag</h2><p class="mu">Woche 1 · Alltag &amp; Arbeit. Kein Ton, keine Tastatur – nur tippen. Kurz die Sätze von heute Morgen ansehen, dann üben.</p></div>
+<div class="card"><h2>📖 Kernsätze</h2>${c.s.map(line).join("")}</div>
+<div class="card"><h2>🆕 Neue Wörter</h2>${c.w.map(line).join("")}</div>
+<div class="card"><h2>🧱 Baustein: ${esc(c.b.t)}</h2><div class="rs">${esc(c.b.rs)}</div><div class="mu">${esc(c.b.de)}</div>${c.b.v.map(line).join("")}</div>
+<div class="card"><h2>🔤 Verb des Tages: ${esc(c.vb.inf[0])}</h2><div class="rs">${esc(c.vb.inf[1])} · ${esc(c.vb.inf[2])}</div><table>${c.vb.f.map(r=>`<tr><td><b>${esc(r[0])}</b></td><td class="rs">${esc(r[1])}</td><td class="mu">${esc(r[2])}</td></tr>`).join("")}</table></div>
+<div class="card"><h2>💡 Tipp</h2><div class="mu">${esc(c.tip)}</div></div>`+
+`<button class="pri big" data-l="1">▶︎ Übungen starten (${L[1].ex.length} Aufgaben)</button>`+(saved?`<button class="opt" id="old">📋 Letztes Ergebnis nochmal kopieren</button>`:"");
+F.innerHTML="";V.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>start(+b.dataset.l));if(saved)$("#old").onclick=()=>{mainTxt=saved;copyView(saved)};window.scrollTo(0,0)}
+function start(n){cur=n;i=0;res=[];xp=0;review=false;show()}
+function exp(e){if(e.t==="match")return "";return e.rev?e.a.join(" "):(e.fr||e.a.join(" "))}
+function sol(e){return `<div><b>${esc(e.fr||e.a.join(" "))}</b></div><div class="rs">${esc(e.rs)}</div><div class="mu">${esc(e.de)}</div>`}
+function finish(ok,given){const e=ex()[i];if(!review){res.push({id:`A${i+1}`,t:e.t,s:ok===null?"ÜBERSPRUNGEN":ok?"OK":"FALSCH",exp:exp(e),got:given||""});if(ok)xp+=10}
+hdr();if(e.t!=="match"){const d=document.createElement("div");d.className="fb "+(ok?"ok":"bad");d.innerHTML=(ok?(review?"✅ Richtig!":"✅ Richtig! +10 XP"):ok===null?"⏭️ Übersprungen. Lösung:":"❌ Fast! Richtig wäre:")+sol(e)+(e.why?`<div class="mu">💡 ${esc(e.why)}</div>`:"");V.querySelector(".card").appendChild(d)}
+F.innerHTML=`<button class="pri" id="nx">Weiter ➜</button>`;$("#nx").onclick=()=>{i++;show()};V.querySelectorAll(".card button").forEach(b=>b.disabled=true)}
+function skipBtn(extra){F.innerHTML=`<button id="sk">Überspringen</button>`+(extra||"");$("#sk").onclick=()=>finish(null,"")}
+function show(){hdr();window.scrollTo(0,0);const X=ex();if(i>=X.length)return end();const e=X[i];
+const top=`<div class="mu">${review?"🔁 Fehler nochmal":esc(L[cur].title)} · Aufgabe ${i+1}/${X.length} · ${TN[e.t]}</div>`;
+if(e.t==="match"){const lf=shuffle(e.p.map((p,k)=>k)),rt=shuffle(e.p.map((p,k)=>k));let sl=null,ok=0,err=0;
+V.innerHTML=`<div class="card">${top}<h2>Ordne die Paare zu</h2><div class="grid">${lf.map((k,r)=>`<button data-s="L" data-k="${k}">${esc(e.p[k][0])}<br><span class="rs">${esc(e.p[k][1])}</span></button><button data-s="R" data-k="${rt[r]}">${esc(e.p[rt[r]][2])}</button>`).join("")}</div></div>`;
+skipBtn();V.querySelectorAll(".grid button").forEach(b=>b.onclick=()=>{if(!sl||sl.dataset.s===b.dataset.s){if(sl)sl.classList.remove("sel");sl=b;b.classList.add("sel");return}
+if(sl.dataset.k===b.dataset.k){sl.classList.add("done");b.classList.add("done");sl=null;if(++ok===e.p.length){const g=err?`${err} Fehlversuch(e)`:"";finish(err===0,g);const d=document.createElement("div");d.className="fb "+(err?"bad":"ok");d.textContent=err?`Geschafft, mit ${err} Fehlversuch(en).`:"✅ Alle Paare richtig!";V.querySelector(".card").appendChild(d)}}
+else{err++;const a=sl;a.classList.remove("sel");[a,b].forEach(x=>{x.classList.add("flash");setTimeout(()=>x.classList.remove("flash"),500)});sl=null}});return}
+if(e.t==="mc"||e.t==="gap"){const q=e.t==="mc"?esc(e.q):`${esc(e.pre)}<b>___</b>${esc(e.post)}`;
+V.innerHTML=`<div class="card">${top}<h2>${e.t==="mc"?"Wähle die richtige Form":"Welches Wort fehlt?"}</h2><div class="mu">🇩🇪 ${esc(e.de)}</div><div class="q">${q}</div>${e.o.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div>`;
+skipBtn();V.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{const k=+b.dataset.k;b.classList.add(k===e.c?"ok":"bad");V.querySelectorAll(".opt")[e.c].classList.add("ok");finish(k===e.c,e.t==="mc"?e.q.replace("___",e.o[k]):(e.pre+e.o[k]+e.post))});return}
+const pool=shuffle(e.a.concat(e.x||[]).map((w,k)=>({w,k})));let built=[];
+const prompt=e.rev?`<div class="q">🇫🇷 ${esc(e.fr)}</div><div class="rs">${esc(e.rs)}</div>`:`<div class="mu">🇩🇪 ${esc(e.de)}</div>`;
+V.innerHTML=`<div class="card">${top}<h2>${e.rev?"Bau den Satz auf Deutsch":e.t==="tiles"?"Bau den Satz auf Französisch":"Bring die Wörter in die richtige Reihenfolge"}</h2>${prompt}<div class="slot" id="slot"></div><div class="tiles" id="pool"></div></div>`;
+skipBtn(`<button class="pri" id="ck">Prüfen</button>`);
+function draw(){$("#slot").innerHTML=built.map((t,n)=>`<button class="tile" data-n="${n}">${esc(t.w)}</button>`).join("");
+$("#pool").innerHTML=pool.map(t=>`<button class="tile ${built.includes(t)?"done":""}" data-k="${t.k}">${esc(t.w)}</button>`).join("");
+RZ($("#slot"),built,draw);
+$("#pool").querySelectorAll("button").forEach(b=>b.onclick=()=>{built.push(pool.find(t=>t.k===+b.dataset.k));draw()})}
+draw();$("#ck").onclick=()=>{const g=built.map(t=>t.w).join(" ");finish(g===e.a.join(" "),g)}}
+function report(){const ok=res.filter(r=>r.s==="OK").length;let s=`FR-ERGEBNIS ${LID} ${DATE} ${SLOT} (leise)\nXP ${xp} | ${ok}/${res.length}\n`;
+res.forEach(r=>{s+=`${r.id} ${TN[r.t]} ${r.s}`;if(r.s==="FALSCH")s+=` | soll: ${r.exp} | ich: ${r.got}`;if(r.s==="ÜBERSPRUNGEN")s+=` | soll: ${r.exp}`;s+="\n"});return s.trim()}
+function copyView(txt){V.innerHTML=`<button class="pri big" id="cp">📋 Ergebnis kopieren</button><div id="cpm" class="mu" style="margin:8px 0"></div><textarea id="ta" readonly style="display:none">${esc(txt)}</textarea><button class="opt" id="hm">↩︎ Zur Übersicht</button>`;F.innerHTML="";bindCopy(txt)}
+function bindCopy(txt){$("#hm").onclick=home;$("#cp").onclick=async()=>{let done=false;try{await navigator.clipboard.writeText(txt);done=true}catch(_){}
+const ta=$("#ta");if(!done){ta.style.display="block";ta.focus();ta.select();try{done=document.execCommand("copy")}catch(_){}}
+$("#cpm").textContent=done?"✅ Kopiert! Jetzt im Chat einfügen.":"Bitte Text unten markieren und kopieren.";if(!done)ta.style.display="block";window.__copied=txt}}
+function end(){$("#bar i").style.width="100%";
+if(!review){mainTxt=report();localStorage.setItem(K.res,mainTxt);fails=L[cur].ex.filter((e,k)=>res[k]&&res[k].s!=="OK")}
+const ok=res.filter(r=>r.s==="OK").length;
+V.innerHTML=`<div class="card"><h2>${review?"Wiederholung fertig 💪":"Fertig! 🎉"}</h2><div class="q">${ok} von ${res.length} richtig · <b>${xp} XP</b></div><div class="mu">Woche jetzt ${BASE.week+xp} XP · 🔥 Serie läuft weiter, sobald du das Ergebnis im Chat einfügst. Deine Fehler kommen morgen und in ein paar Tagen nochmal.</div></div>
+<button class="pri big" id="cp">📋 Ergebnis kopieren</button><div id="cpm" class="mu" style="margin:8px 0"></div><textarea id="ta" readonly style="display:none">${esc(mainTxt)}</textarea>
+${fails.length?`<button class="opt" id="rv">🔁 Fehler nochmal üben (${fails.length})</button>`:""}<button class="opt" id="hm">↩︎ Zur Übersicht</button>`;F.innerHTML="";
+bindCopy(mainTxt);if(fails.length)$("#rv").onclick=()=>{review=true;i=0;show()}}
+home();
+</script><script src="../addon.js"></script></body></html>
