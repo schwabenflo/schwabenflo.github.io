@@ -1,0 +1,1 @@
+{"name": "Thesis Lernseite", "short_name": "Lernen", "start_url": ".", "display": "standalone", "background_color": "#f6f7fb", "theme_color": "#1f3a8a", "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml"}]}
