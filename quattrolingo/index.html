@@ -1,0 +1,19 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><title>Quattrolingo</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="apple-touch-icon" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Quattrolingo"><meta name="theme-color" content="#4f6bff">
+<link rel="stylesheet" href="app.css"></head><body>
+<header><div class="hrow"><h1>🇫🇷 Quattrolingo</h1><button id="th" class="ic" aria-label="Hell/Dunkel">🌙</button></div>
+<div class="kpi"><div><b id="kw">–</b>Woche XP</div><div><b id="kt">–</b>Gesamt XP</div><div><b id="ks">–</b>🔥 Streak</div></div>
+<a id="last" class="last" style="display:none"></a></header>
+<main>
+<div id="remind" class="card warn" style="display:none"></div>
+<div class="big3"><button data-tab="heute" class="on">📅<br>Heute</button><button data-tab="vorrat">📦<br>Vorrat</button><button data-tab="archiv">🗂️<br>Archiv</button></div>
+<button id="fiveBtn" class="cta">⚡ Fünf-Minuten-Modus</button>
+<section id="tabs"></section>
+<section class="card" id="fehlerCard"><h2>🎯 Deine Fehler</h2><div id="fehlerList" class="mut">lädt …</div></section>
+<section class="card" id="pokal"><h2>🏆 Wochenpokal</h2><div id="pokalBody"></div></section>
+<p class="mut foot">Ergebnis am Ende jeder Lektion kopieren und im Chat einfügen – oder ✉️ senden.</p>
+</main>
+<div id="quiz" class="quiz" style="display:none"><div class="qhead"><button id="qx" class="ic">✕</button><div class="qbar"><div id="qfill"></div></div><span id="qxp">0 XP</span></div><div id="qview" class="card"></div><footer class="qfoot"><button id="qskip" class="ghost">⏭️ Überspringen</button><button id="qact" class="cta">Prüfen</button></footer></div>
+<script src="app.js"></script></body></html>
