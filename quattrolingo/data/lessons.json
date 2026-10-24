@@ -1,0 +1,454 @@
+[
+ {
+  "id": "2026-10-22_Morgen",
+  "kind": "tag",
+  "date": "2026-10-22",
+  "slot": "Morgen",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch Do 22.10. – Morgen (leise)",
+  "file": "l/2026-10-22_Morgen.html",
+  "kb": 19
+ },
+ {
+  "id": "2026-10-22_Mittag",
+  "kind": "tag",
+  "date": "2026-10-22",
+  "slot": "Mittag",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch 22.10. Mittag",
+  "file": "l/2026-10-22_Mittag.html",
+  "kb": 19
+ },
+ {
+  "id": "2026-10-22_Abend",
+  "kind": "tag",
+  "date": "2026-10-22",
+  "slot": "Abend",
+  "silent": false,
+  "hasAudio": true,
+  "title": "Französisch 22.10. Abend",
+  "file": "l/2026-10-22_Abend.html",
+  "kb": 699
+ },
+ {
+  "id": "2026-10-23_Morgen",
+  "kind": "tag",
+  "date": "2026-10-23",
+  "slot": "Morgen",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch 23.10. Morgen",
+  "file": "l/2026-10-23_Morgen.html",
+  "kb": 19
+ },
+ {
+  "id": "2026-10-23_Mittag",
+  "kind": "tag",
+  "date": "2026-10-23",
+  "slot": "Mittag",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch 23.10. Mittag",
+  "file": "l/2026-10-23_Mittag.html",
+  "kb": 19
+ },
+ {
+  "id": "2026-10-23_Abend",
+  "kind": "tag",
+  "date": "2026-10-23",
+  "slot": "Abend",
+  "silent": false,
+  "hasAudio": true,
+  "title": "Französisch 23.10. Abend",
+  "file": "l/2026-10-23_Abend.html",
+  "kb": 411
+ },
+ {
+  "id": "2026-10-24_Morgen",
+  "kind": "tag",
+  "date": "2026-10-24",
+  "slot": "Morgen",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch 24.10. Morgen",
+  "file": "l/2026-10-24_Morgen.html",
+  "kb": 19
+ },
+ {
+  "id": "2026-10-24_Mittag",
+  "kind": "tag",
+  "date": "2026-10-24",
+  "slot": "Mittag",
+  "silent": false,
+  "hasAudio": true,
+  "title": "Französisch 24.10. Mittag",
+  "file": "l/2026-10-24_Mittag.html",
+  "kb": 342
+ },
+ {
+  "id": "2026-10-24_Abend",
+  "kind": "tag",
+  "date": "2026-10-24",
+  "slot": "Abend",
+  "silent": false,
+  "hasAudio": true,
+  "title": "Französisch 24.10. Abend",
+  "file": "l/2026-10-24_Abend.html",
+  "kb": 317
+ },
+ {
+  "id": "2026-10-24_Abend_leise",
+  "kind": "tag",
+  "date": "2026-10-24",
+  "slot": "Abend",
+  "silent": true,
+  "hasAudio": false,
+  "title": "Französisch 24.10. Abend (leise)",
+  "file": "l/2026-10-24_Abend_leise.html",
+  "kb": 40
+ },
+ {
+  "id": "V01_Geschaeftlich",
+  "kind": "vorrat",
+  "nr": 1,
+  "title": "Geschaeftlich",
+  "hasAudio": true,
+  "file": "l/V01_Geschaeftlich.html",
+  "kb": 736
+ },
+ {
+  "id": "V02_Urlaub",
+  "kind": "vorrat",
+  "nr": 2,
+  "title": "Urlaub",
+  "hasAudio": true,
+  "file": "l/V02_Urlaub.html",
+  "kb": 867
+ },
+ {
+  "id": "V03_Musikverein",
+  "kind": "vorrat",
+  "nr": 3,
+  "title": "Musikverein",
+  "hasAudio": true,
+  "file": "l/V03_Musikverein.html",
+  "kb": 761
+ },
+ {
+  "id": "V04_Fussballverein",
+  "kind": "vorrat",
+  "nr": 4,
+  "title": "Fussballverein",
+  "hasAudio": true,
+  "file": "l/V04_Fussballverein.html",
+  "kb": 766
+ },
+ {
+  "id": "V06_Bruder_3D-Druck",
+  "kind": "vorrat",
+  "nr": 6,
+  "title": "Bruder 3D-Druck",
+  "hasAudio": true,
+  "file": "l/V06_Bruder_3D-Druck.html",
+  "kb": 782
+ },
+ {
+  "id": "V07_Bruder_Politik",
+  "kind": "vorrat",
+  "nr": 7,
+  "title": "Bruder Politik",
+  "hasAudio": true,
+  "file": "l/V07_Bruder_Politik.html",
+  "kb": 703
+ },
+ {
+  "id": "V08_Bruder_Kochen",
+  "kind": "vorrat",
+  "nr": 8,
+  "title": "Bruder Kochen",
+  "hasAudio": true,
+  "file": "l/V08_Bruder_Kochen.html",
+  "kb": 710
+ },
+ {
+  "id": "V09_Freund_Halloween",
+  "kind": "vorrat",
+  "nr": 9,
+  "title": "Freund Halloween",
+  "hasAudio": true,
+  "file": "l/V09_Freund_Halloween.html",
+  "kb": 732
+ },
+ {
+  "id": "V10_Freund_Formel1",
+  "kind": "vorrat",
+  "nr": 10,
+  "title": "Freund Formel1",
+  "hasAudio": true,
+  "file": "l/V10_Freund_Formel1.html",
+  "kb": 745
+ },
+ {
+  "id": "V12_Triathlon",
+  "kind": "vorrat",
+  "nr": 12,
+  "title": "Triathlon",
+  "hasAudio": true,
+  "file": "l/V12_Triathlon.html",
+  "kb": 854
+ },
+ {
+  "id": "V13_Auto_Werkstatt",
+  "kind": "vorrat",
+  "nr": 13,
+  "title": "Auto Werkstatt",
+  "hasAudio": true,
+  "file": "l/V13_Auto_Werkstatt.html",
+  "kb": 762
+ },
+ {
+  "id": "V14_Bruder_Aktien",
+  "kind": "vorrat",
+  "nr": 14,
+  "title": "Bruder Aktien",
+  "hasAudio": true,
+  "file": "l/V14_Bruder_Aktien.html",
+  "kb": 785
+ },
+ {
+  "id": "V15_Freund_Grillabend",
+  "kind": "vorrat",
+  "nr": 15,
+  "title": "Freund Grillabend",
+  "hasAudio": true,
+  "file": "l/V15_Freund_Grillabend.html",
+  "kb": 812
+ },
+ {
+  "id": "V16_Bahnreise",
+  "kind": "vorrat",
+  "nr": 16,
+  "title": "Bahnreise",
+  "hasAudio": true,
+  "file": "l/V16_Bahnreise.html",
+  "kb": 756
+ },
+ {
+  "id": "V17_Rennrad",
+  "kind": "vorrat",
+  "nr": 17,
+  "title": "Rennrad",
+  "hasAudio": true,
+  "file": "l/V17_Rennrad.html",
+  "kb": 739
+ },
+ {
+  "id": "V18_Mountainbike",
+  "kind": "vorrat",
+  "nr": 18,
+  "title": "Mountainbike",
+  "hasAudio": true,
+  "file": "l/V18_Mountainbike.html",
+  "kb": 824
+ },
+ {
+  "id": "V19_Joggen_Marathon",
+  "kind": "vorrat",
+  "nr": 19,
+  "title": "Joggen Marathon",
+  "hasAudio": true,
+  "file": "l/V19_Joggen_Marathon.html",
+  "kb": 787
+ },
+ {
+  "id": "V20_Schwimmen_Kraulen",
+  "kind": "vorrat",
+  "nr": 20,
+  "title": "Schwimmen Kraulen",
+  "hasAudio": true,
+  "file": "l/V20_Schwimmen_Kraulen.html",
+  "kb": 796
+ },
+ {
+  "id": "V21_Wohnung_Handwerker",
+  "kind": "vorrat",
+  "nr": 21,
+  "title": "Wohnung Handwerker",
+  "hasAudio": true,
+  "file": "l/V21_Wohnung_Handwerker.html",
+  "kb": 694
+ },
+ {
+  "id": "V22_Einkaufen_Markt",
+  "kind": "vorrat",
+  "nr": 22,
+  "title": "Einkaufen Markt",
+  "hasAudio": true,
+  "file": "l/V22_Einkaufen_Markt.html",
+  "kb": 668
+ },
+ {
+  "id": "V23_Vorstellungs_Gehaltsgespraech",
+  "kind": "vorrat",
+  "nr": 23,
+  "title": "Vorstellungs Gehaltsgespraech",
+  "hasAudio": true,
+  "file": "l/V23_Vorstellungs_Gehaltsgespraech.html",
+  "kb": 700
+ },
+ {
+  "id": "V24_Ortschaftsrat",
+  "kind": "vorrat",
+  "nr": 24,
+  "title": "Ortschaftsrat",
+  "hasAudio": true,
+  "file": "l/V24_Ortschaftsrat.html",
+  "kb": 775
+ },
+ {
+  "id": "V25_Freund_Skifahren_Winterurlaub",
+  "kind": "vorrat",
+  "nr": 25,
+  "title": "Freund Skifahren Winterurlaub",
+  "hasAudio": true,
+  "file": "l/V25_Freund_Skifahren_Winterurlaub.html",
+  "kb": 749
+ },
+ {
+  "id": "V26_Feier_organisieren",
+  "kind": "vorrat",
+  "nr": 26,
+  "title": "Feier organisieren",
+  "hasAudio": true,
+  "file": "l/V26_Feier_organisieren.html",
+  "kb": 798
+ },
+ {
+  "id": "V27_Behoerde",
+  "kind": "vorrat",
+  "nr": 27,
+  "title": "Behoerde",
+  "hasAudio": true,
+  "file": "l/V27_Behoerde.html",
+  "kb": 668
+ },
+ {
+  "id": "V28_Bruder_Technik_KI",
+  "kind": "vorrat",
+  "nr": 28,
+  "title": "Bruder Technik KI",
+  "hasAudio": true,
+  "file": "l/V28_Bruder_Technik_KI.html",
+  "kb": 750
+ },
+ {
+  "id": "V29_Wetter_Wochenende",
+  "kind": "vorrat",
+  "nr": 29,
+  "title": "Wetter Wochenende",
+  "hasAudio": true,
+  "file": "l/V29_Wetter_Wochenende.html",
+  "kb": 683
+ },
+ {
+  "id": "V30_Smalltalk_Party",
+  "kind": "vorrat",
+  "nr": 30,
+  "title": "Smalltalk Party",
+  "hasAudio": true,
+  "file": "l/V30_Smalltalk_Party.html",
+  "kb": 761
+ },
+ {
+  "id": "V31_Restaurant_Allergie",
+  "kind": "vorrat",
+  "nr": 31,
+  "title": "Restaurant Allergie",
+  "hasAudio": true,
+  "file": "l/V31_Restaurant_Allergie.html",
+  "kb": 649
+ },
+ {
+  "id": "V32_Hotel_Checkin",
+  "kind": "vorrat",
+  "nr": 32,
+  "title": "Hotel Checkin",
+  "hasAudio": true,
+  "file": "l/V32_Hotel_Checkin.html",
+  "kb": 651
+ },
+ {
+  "id": "V33_Telefonat_Kunde",
+  "kind": "vorrat",
+  "nr": 33,
+  "title": "Telefonat Kunde",
+  "hasAudio": true,
+  "file": "l/V33_Telefonat_Kunde.html",
+  "kb": 580
+ },
+ {
+  "id": "V34_Paket_Post_Retoure",
+  "kind": "vorrat",
+  "nr": 34,
+  "title": "Paket Post Retoure",
+  "hasAudio": true,
+  "file": "l/V34_Paket_Post_Retoure.html",
+  "kb": 588
+ },
+ {
+  "id": "V35_Fitnessstudio",
+  "kind": "vorrat",
+  "nr": 35,
+  "title": "Fitnessstudio",
+  "hasAudio": true,
+  "file": "l/V35_Fitnessstudio.html",
+  "kb": 624
+ },
+ {
+  "id": "V36_Konzertabend",
+  "kind": "vorrat",
+  "nr": 36,
+  "title": "Konzertabend",
+  "hasAudio": true,
+  "file": "l/V36_Konzertabend.html",
+  "kb": 609
+ },
+ {
+  "id": "V37_Wegbeschreibung",
+  "kind": "vorrat",
+  "nr": 37,
+  "title": "Wegbeschreibung",
+  "hasAudio": true,
+  "file": "l/V37_Wegbeschreibung.html",
+  "kb": 588
+ },
+ {
+  "id": "V38_Nachbarn",
+  "kind": "vorrat",
+  "nr": 38,
+  "title": "Nachbarn",
+  "hasAudio": true,
+  "file": "l/V38_Nachbarn.html",
+  "kb": 655
+ },
+ {
+  "id": "V39_Geburtstag",
+  "kind": "vorrat",
+  "nr": 39,
+  "title": "Geburtstag",
+  "hasAudio": true,
+  "file": "l/V39_Geburtstag.html",
+  "kb": 626
+ },
+ {
+  "id": "V40_Studium_Masterarbeit",
+  "kind": "vorrat",
+  "nr": 40,
+  "title": "Studium Masterarbeit",
+  "hasAudio": true,
+  "file": "l/V40_Studium_Masterarbeit.html",
+  "kb": 602
+ }
+]

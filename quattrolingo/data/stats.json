@@ -1,0 +1,7 @@
+{"updated":"2026-10-25","streak":2,"bestStreak":2,"totalXP":205,
+ "weeks":[
+  {"week":"2026-W43","from":"2026-10-19","days":{"2026-10-19":0,"2026-10-20":0,"2026-10-21":30,"2026-10-22":0,"2026-10-23":50,"2026-10-24":125,"2026-10-25":0},"xp":205,"lessons":3,"errorsByType":{"Genus":6,"Zeiten/Verbform":6,"Wortstellung":3,"Präposition":2,"Vokabel":1}},
+  {"week":"2026-W42","from":"2026-10-12","days":{},"xp":0,"lessons":0,"errorsByType":{}}
+ ],
+ "badges":[{"id":"start","icon":"🌱","name":"Erste Lektion","got":"2026-10-21"}]
+}
