@@ -1,10 +1,181 @@
-{"updated":"2026-10-25","items":[
- {"id":"finis","type":"Zeiten/Verbform","fr":"Le vendredi, je finis plus tôt.","rs":"lö wang-drö-di, schö fi-ni plü to","de":"Freitags höre ich früher auf.","rule":"Gegenwart: je finis (mit -s). Vergangenheit: j'ai fini.","q":"Le vendredi, je ___ plus tôt.","right":"finis","wrong":["fini","finit"],"due":"2026-10-25","seen":3},
- {"id":"fini","type":"Zeiten/Verbform","fr":"Hier soir, j'ai fini tard.","rs":"i-är ßwar, sch-e fi-ni tar","de":"Gestern Abend bin ich spät fertig geworden.","rule":"avoir + fini = Vergangenheit (passé composé).","q":"Hier soir, j'ai ___ tard.","right":"fini","wrong":["finis","finit"],"due":"2026-10-25","seen":3},
- {"id":"cet","type":"Genus","fr":"Cet après-midi, j'ai lavé la voiture.","rs":"ßett apräh-mi-di, sch-e la-we la wua-tür","de":"Heute Nachmittag habe ich das Auto gewaschen.","rule":"cet = männlich vor Vokal (cet après-midi), ce = männlich (ce soir), cette = weiblich (cette nuit).","q":"___ après-midi, j'ai lavé la voiture.","right":"Cet","wrong":["Ce","Cette"],"due":"2026-10-25","seen":3},
- {"id":"cette","type":"Genus","fr":"Cette nuit, je vais dormir une heure de plus.","rs":"ßett nüi, schö wä dor-mir ün ör dö plüß","de":"Heute Nacht schlafe ich eine Stunde länger.","rule":"la nuit ist weiblich → cette nuit.","q":"___ nuit, je vais dormir une heure de plus.","right":"Cette","wrong":["Ce","Cet"],"due":"2026-10-25","seen":2},
- {"id":"ma","type":"Genus","fr":"Lundi, j'appelle ma collègue Julie.","rs":"löng-di, scha-päl ma ko-läg schü-li","de":"Am Montag rufe ich meine Kollegin Julie an.","rule":"la collègue (Frau) → ma collègue; mes nur im Plural.","q":"Lundi, j'appelle ___ collègue Julie.","right":"ma","wrong":["mon","mes"],"due":"2026-10-25","seen":3},
- {"id":"encore","type":"Wortstellung","fr":"Demain, je dois encore préparer mon sac de sport.","rs":"dö-mäng, schö dua ang-kor pre-pa-re mong ßak dö ßpor","de":"Morgen muss ich noch meine Sporttasche packen.","rule":"encore steht zwischen den beiden Verben: je dois encore préparer.","q":"Demain, je dois ___ mon sac de sport.","right":"encore préparer","wrong":["préparer encore","encore prépare"],"due":"2026-10-25","seen":2},
- {"id":"a14h","type":"Präposition","fr":"Demain, le match est à quatorze heures trente.","rs":"dö-mäng, lö matsch ä a ka-tors ör trangt","de":"Morgen ist das Spiel um 14:30 Uhr.","rule":"Uhrzeit immer mit à: à quatorze heures.","q":"Demain, le match est ___ quatorze heures trente.","right":"à","wrong":["au","en"],"due":"2026-10-25","seen":1},
- {"id":"hate","type":"Wortstellung","fr":"J'ai hâte de voir la course.","rs":"sch-e aht dö wuar la kurß","de":"Ich freue mich darauf, das Rennen zu sehen.","rule":"J'ai hâte de + Verb im Infinitiv.","q":"J'ai hâte de ___ la course.","right":"voir","wrong":["vois","vu"],"due":"2026-10-25","seen":1}
-]}
+{
+ "updated": "2026-10-26",
+ "items": [
+  {
+   "id": "finis",
+   "type": "Zeiten/Verbform",
+   "fr": "Le vendredi, je finis plus tôt.",
+   "rs": "lö wang-drö-di, schö fi-ni plü to",
+   "de": "Freitags höre ich früher auf.",
+   "rule": "Gegenwart: je finis (mit -s). Vergangenheit: j'ai fini.",
+   "q": "Le vendredi, je ___ plus tôt.",
+   "right": "finis",
+   "wrong": [
+    "fini",
+    "finit"
+   ],
+   "due": "2026-10-25",
+   "seen": 3
+  },
+  {
+   "id": "fini",
+   "type": "Zeiten/Verbform",
+   "fr": "Hier soir, j'ai fini tard.",
+   "rs": "i-är ßwar, sch-e fi-ni tar",
+   "de": "Gestern Abend bin ich spät fertig geworden.",
+   "rule": "avoir + fini = Vergangenheit (passé composé).",
+   "q": "Hier soir, j'ai ___ tard.",
+   "right": "fini",
+   "wrong": [
+    "finis",
+    "finit"
+   ],
+   "due": "2026-10-27",
+   "seen": 4
+  },
+  {
+   "id": "cet",
+   "type": "Genus",
+   "fr": "Cet après-midi, j'ai lavé la voiture.",
+   "rs": "ßett apräh-mi-di, sch-e la-we la wua-tür",
+   "de": "Heute Nachmittag habe ich das Auto gewaschen.",
+   "rule": "cet = männlich vor Vokal (cet après-midi), ce = männlich (ce soir), cette = weiblich (cette nuit).",
+   "q": "___ après-midi, j'ai lavé la voiture.",
+   "right": "Cet",
+   "wrong": [
+    "Ce",
+    "Cette"
+   ],
+   "due": "2026-10-25",
+   "seen": 3
+  },
+  {
+   "id": "cette",
+   "type": "Genus",
+   "fr": "Cette nuit, je vais dormir une heure de plus.",
+   "rs": "ßett nüi, schö wä dor-mir ün ör dö plüß",
+   "de": "Heute Nacht schlafe ich eine Stunde länger.",
+   "rule": "la nuit ist weiblich → cette nuit.",
+   "q": "___ nuit, je vais dormir une heure de plus.",
+   "right": "Cette",
+   "wrong": [
+    "Ce",
+    "Cet"
+   ],
+   "due": "2026-10-27",
+   "seen": 3
+  },
+  {
+   "id": "ma",
+   "type": "Genus",
+   "fr": "Lundi, j'appelle ma collègue Julie.",
+   "rs": "löng-di, scha-päl ma ko-läg schü-li",
+   "de": "Am Montag rufe ich meine Kollegin Julie an.",
+   "rule": "la collègue (Frau) → ma collègue; mes nur im Plural.",
+   "q": "Lundi, j'appelle ___ collègue Julie.",
+   "right": "ma",
+   "wrong": [
+    "mon",
+    "mes"
+   ],
+   "due": "2026-10-25",
+   "seen": 3
+  },
+  {
+   "id": "encore",
+   "type": "Wortstellung",
+   "fr": "Demain, je dois encore préparer mon sac de sport.",
+   "rs": "dö-mäng, schö dua ang-kor pre-pa-re mong ßak dö ßpor",
+   "de": "Morgen muss ich noch meine Sporttasche packen.",
+   "rule": "encore steht zwischen den beiden Verben: je dois encore préparer.",
+   "q": "Demain, je dois ___ mon sac de sport.",
+   "right": "encore préparer",
+   "wrong": [
+    "préparer encore",
+    "encore prépare"
+   ],
+   "due": "2026-10-25",
+   "seen": 2
+  },
+  {
+   "id": "a14h",
+   "type": "Präposition",
+   "fr": "Demain, le match est à quatorze heures trente.",
+   "rs": "dö-mäng, lö matsch ä a ka-tors ör trangt",
+   "de": "Morgen ist das Spiel um 14:30 Uhr.",
+   "rule": "Uhrzeit immer mit à: à quatorze heures.",
+   "q": "Demain, le match est ___ quatorze heures trente.",
+   "right": "à",
+   "wrong": [
+    "au",
+    "en"
+   ],
+   "due": "2026-10-25",
+   "seen": 1
+  },
+  {
+   "id": "hate",
+   "type": "Wortstellung",
+   "fr": "J'ai hâte de voir la course.",
+   "rs": "sch-e aht dö wuar la kurß",
+   "de": "Ich freue mich darauf, das Rennen zu sehen.",
+   "rule": "J'ai hâte de + Verb im Infinitiv.",
+   "q": "J'ai hâte de ___ la course.",
+   "right": "voir",
+   "wrong": [
+    "vois",
+    "vu"
+   ],
+   "due": "2026-10-25",
+   "seen": 1
+  },
+  {
+   "id": "repondu",
+   "type": "Zeiten/Verbform",
+   "fr": "Ce matin, j'ai répondu à tous mes e-mails.",
+   "rs": "ßö ma-täng, sch-e re-pong-dü a tu mä e-mäil",
+   "de": "Heute Morgen habe ich alle meine E-Mails beantwortet.",
+   "rule": "ce matin + abgeschlossen → passé composé: j'ai répondu (nicht je réponds).",
+   "q": "Ce matin, j'___ à tous mes e-mails.",
+   "right": "ai répondu",
+   "wrong": [
+    "réponds",
+    "vais répondre"
+   ],
+   "due": "2026-10-27",
+   "seen": 1
+  },
+  {
+   "id": "mes",
+   "type": "Genus",
+   "fr": "J'ai répondu à mes e-mails.",
+   "rs": "sch-e re-pong-dü a mä e-mäil",
+   "de": "Ich habe meine E-Mails beantwortet.",
+   "rule": "Plural → mes (mon/ma nur Einzahl): mes e-mails.",
+   "q": "J'ai répondu à ___ e-mails.",
+   "right": "mes",
+   "wrong": [
+    "ma",
+    "mon"
+   ],
+   "due": "2026-10-27",
+   "seen": 1
+  },
+  {
+   "id": "rdv",
+   "type": "Zeiten/Verbform",
+   "fr": "Hier soir, mon rendez-vous important s'est bien passé.",
+   "rs": "i-är ßwar, mong rang-de-wu äng-por-tang ßä bjäng pa-ße",
+   "de": "Gestern Abend ist mein wichtiger Termin gut gelaufen.",
+   "rule": "ça s'est bien passé / mon rendez-vous s'est bien passé = es ist gut gelaufen (passé composé mit être).",
+   "q": "Hier soir, mon rendez-vous important ___ bien passé.",
+   "right": "s'est",
+   "wrong": [
+    "se passe",
+    "a"
+   ],
+   "due": "2026-10-27",
+   "seen": 1
+  }
+ ]
+}
