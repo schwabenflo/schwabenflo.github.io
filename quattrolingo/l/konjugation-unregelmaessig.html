@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Konjugation: être, avoir, faire, aller</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2330;--mu:#6b7385;--ac:#3b6cf6;--ok:#1f9d55;--bad:#d64545;--bd:#dde2ec}
+body.dark{--bg:#12151c;--card:#1c212b;--tx:#e8ebf2;--mu:#98a1b3;--ac:#6f93ff;--ok:#3ccf7d;--bad:#ff6b6b;--bd:#2c3340}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.4 system-ui,sans-serif}
+header{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--bd);padding:8px 12px;display:flex;gap:8px;align-items:center;font-size:14px;z-index:2}
+header b{color:var(--ac)}.sp{flex:1}
+.qmenu{display:inline-block;padding:.25rem .6rem;border-radius:10px;background:#eef1ff;color:var(--ac);text-decoration:none;font-size:.85rem;font-weight:700}
+body.dark .qmenu{background:#273050}
+#bar{height:5px;background:var(--bd)}#bar i{display:block;height:100%;background:var(--ac);width:0;transition:.3s}
+main{max-width:520px;margin:0 auto;padding:14px 14px 120px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{font-size:19px;margin:0 0 6px}.mu{color:var(--mu);font-size:14px}.rs{color:var(--mu);font-style:italic;font-size:15px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:12px;min-height:48px;cursor:pointer}
+.foot{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);padding:10px 14px;display:flex;gap:8px}
+.foot button{flex:1}.pri{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:600}
+.fb{border-radius:12px;padding:10px;margin-top:8px}.fb.ok{background:color-mix(in srgb,var(--ok) 15%,var(--card))}.fb.bad{background:color-mix(in srgb,var(--bad) 15%,var(--card))}
+.de{font-size:19px;font-weight:600;margin:8px 0 10px}
+.hint{font-size:18px;margin:0 0 12px}.hint em{font-style:normal;border-bottom:2px dashed var(--ac);padding:0 .15em;color:var(--ac)}
+input.ans{width:100%;font:inherit;font-size:18px;padding:12px;border:2px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx)}
+input.ans:focus{outline:none;border-color:var(--ac)}
+input.ans[disabled]{opacity:.85}
+.tag{display:inline-block;font-size:.75rem;padding:.15rem .5rem;border-radius:8px;background:#eef1ff;color:var(--mu);margin-bottom:.35rem}
+body.dark .tag{background:#273050}
+.big{width:100%;font-size:19px;padding:16px;margin-top:8px}
+.score{font-size:2.2rem;font-weight:700;text-align:center;margin:8px 0;color:var(--ac)}
+a.back{display:block;text-align:center;margin-top:12px;color:var(--ac);font-weight:700;text-decoration:none}
+</style>
+</head><body>
+<header>
+<a href="../index.html" class="qmenu">☰ Menü</a>
+<b>Konjugation</b>
+<span class="sp"></span>
+<span id="prog" class="mu"></span>
+<button id="dm" style="min-height:36px;padding:4px 10px" aria-label="Hell/Dunkel">🌓</button>
+</header>
+<div id="bar"><i></i></div>
+<main id="view"></main>
+<div class="foot" id="foot"></div>
+<script>(function(){var ok=true;try{var t=window.localStorage;t.setItem("_t","1");t.removeItem("_t")}catch(e){ok=false}if(!ok){var m={};var f={getItem:function(k){return k in m?m[k]:null},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]},clear:function(){m={}}};try{Object.defineProperty(window,"localStorage",{value:f,configurable:true})}catch(e){window.__ls=f}}})();</script>
+<script>
+(function(){
+const ITEMS=[
+/* être = sein */
+{v:"être = sein",tag:"Präsens",de:"Ich bin im Büro.",hint:"Je ___ au bureau.",form:"je suis",rs:"schö süi",full:"Je suis au bureau.",ok:["suis","je suis","je suis au bureau"],w:"Präsens von être: je suis – nicht j'ai (das ist haben). à + le wird zu au."},
+{v:"être = sein",tag:"Verneinung",de:"Ich bin nicht müde.",hint:"Je ___ fatigué.",form:"je ne suis pas",rs:"schö nö süi pa",full:"Je ne suis pas fatigué.",ok:["ne suis pas","je ne suis pas","je ne suis pas fatigue","je ne suis pas fatiguee","je ne suis pas fatigué","je ne suis pas fatiguée"],w:"Verneinung: ne … pas steht um das konjugierte Verb. Vor müde: fatigué / fatiguée."},
+{v:"être = sein",tag:"Präsens",de:"Wir sind bereit.",hint:"Nous ___ prêts.",form:"nous sommes",rs:"nu som",full:"Nous sommes prêts.",ok:["sommes","nous sommes","nous sommes prets","nous sommes pretes","nous sommes prêts","nous sommes prêtes"],w:"Präsens, wir: nous sommes – der Stamm wechselt komplett."},
+{v:"être = sein",tag:"Passé composé",de:"Ich bin gestern im Büro gewesen.",hint:"___ au bureau hier.",form:"j'ai été",rs:"schä e-te",full:"J'ai été au bureau hier.",ok:["ai ete","j'ai ete","jai ete","j ai ete","j'ai ete au bureau hier","jai ete au bureau hier","ai été","j'ai été"],w:"Passé composé von être mit avoir: j'ai été – nicht *je suis été."},
+{v:"être = sein",tag:"Präsens",de:"Du bist hier.",hint:"Tu ___ ici.",form:"tu es",rs:"tü ä",full:"Tu es ici.",ok:["es","tu es","tu es ici"],w:"Präsens, 2. Person: tu es (tü ä). Das s wird nicht gesprochen."},
+{v:"être = sein",tag:"Futur proche",de:"Wir werden bald fertig sein.",hint:"Nous ___ bientôt prêts.",form:"nous allons être",rs:"nu sa-long sät-r",full:"Nous allons bientôt être prêts.",ok:["allons etre","nous allons etre","allons etre bientot prets","nous allons etre bientot prets","nous allons bientot etre prets","allons bientôt être","nous allons être","nous allons bientôt être prêts","nous allons etre prets bientot"],w:"Futur proche: aller + Infinitiv (être). Also nous allons être."},
+{v:"être = sein",tag:"Präsens",de:"Sie sind zu Hause.",hint:"Ils ___ à la maison.",form:"ils sont",rs:"il song",full:"Ils sont à la maison.",ok:["sont","ils sont","ils sont a la maison","elles sont","elles sont a la maison"],w:"Präsens, sie: ils sont – nicht ils ont (das ist haben)!"},
+{v:"être = sein",tag:"Verneinung",de:"Sie sind nicht zu spät.",hint:"Vous ___ en retard.",form:"vous n'êtes pas",rs:"wu nät pa",full:"Vous n'êtes pas en retard.",ok:["n'etes pas","netes pas","n etes pas","vous n'etes pas","vous netes pas","vous n etes pas","vous n'etes pas en retard","n'êtes pas","vous n'êtes pas"],w:"n' vor Vokal: ne + êtes wird zu n'êtes. ne … pas um das Verb."},
+
+/* avoir = haben */
+{v:"avoir = haben",tag:"Präsens",de:"Ich habe Zeit.",hint:"___ le temps.",form:"j'ai",rs:"schä",full:"J'ai le temps.",ok:["ai","j'ai","jai","j ai","je ai","j'ai le temps","jai le temps"],w:"avoir + je wird zu j'ai (Elision wegen des Vokals)."},
+{v:"avoir = haben",tag:"Verneinung",de:"Er hat keine Zeit.",hint:"Il ___ le temps.",form:"il n'a pas",rs:"il na pa",full:"Il n'a pas le temps.",ok:["n'a pas","na pas","n a pas","il n'a pas","il na pas","il n a pas","il n'a pas le temps"],w:"n' vor Vokal: il n'a pas. ne … pas steht um das konjugierte Verb."},
+{v:"avoir = haben",tag:"Präsens",de:"Sie haben recht.",hint:"Ils ___ raison.",form:"ils ont",rs:"il song",full:"Ils ont raison.",ok:["ont","ils ont","ils ont raison","elles ont","elles ont raison"],w:"ils ont mit Bindung – nicht ils sont (sein)!"},
+{v:"avoir = haben",tag:"Passé composé",de:"Ich hatte gestern Zeit.",hint:"___ le temps hier.",form:"j'ai eu",rs:"schä ü",full:"J'ai eu le temps hier.",ok:["ai eu","j'ai eu","jai eu","j ai eu","j'ai eu le temps hier","jai eu le temps hier"],w:"Passé composé von avoir: Hilfsverb avoir + Partizip eu, also j'ai eu."},
+{v:"avoir = haben",tag:"Präsens",de:"Du hast recht.",hint:"Tu ___ raison.",form:"tu as",rs:"tü a",full:"Tu as raison.",ok:["as","tu as","tu as raison"],w:"Präsens, 2. Person: tu as (tü a)."},
+{v:"avoir = haben",tag:"Futur proche",de:"Wir werden Zeit haben.",hint:"Nous ___ le temps.",form:"nous allons avoir",rs:"nu sa-long za-wur",full:"Nous allons avoir le temps.",ok:["allons avoir","nous allons avoir","nous allons avoir le temps"],w:"Futur proche: aller + Infinitiv (avoir). Also nous allons avoir."},
+{v:"avoir = haben",tag:"Präsens",de:"Wir haben eine Frage.",hint:"Nous ___ une question.",form:"nous avons",rs:"nu sa-wong",full:"Nous avons une question.",ok:["avons","nous avons","nous avons une question"],w:"Präsens, wir: nous avons – mit Bindung nu sa-wong."},
+{v:"avoir = haben",tag:"Verneinung",de:"Ich habe keine Zeit.",hint:"___ le temps.",form:"je n'ai pas",rs:"schö nä pa",full:"Je n'ai pas le temps.",ok:["n'ai pas","nai pas","n ai pas","je n'ai pas","je nai pas","je n ai pas","je n'ai pas le temps"],w:"n' vor Vokal: je n'ai pas. ne … pas um das Hilfsverb bzw. das konjugierte Verb."},
+
+/* faire = machen */
+{v:"faire = machen",tag:"Präsens",de:"Ich mache eine Pause.",hint:"Je ___ une pause.",form:"je fais",rs:"schö fä",full:"Je fais une pause.",ok:["fais","je fais","je fais une pause"],w:"Präsens: je fais und tu fais klingen gleich (fä)."},
+{v:"faire = machen",tag:"Passé composé",de:"Ich habe das gemacht.",hint:"___ ça.",form:"j'ai fait",rs:"schä fä",full:"J'ai fait ça.",ok:["ai fait","j'ai fait","jai fait","j ai fait","j'ai fait ca","jai fait ca","j'ai fait ça"],w:"Passé composé mit avoir: j'ai fait. Das Partizip fait bleibt unverändert."},
+{v:"faire = machen",tag:"Präsens",de:"Wir machen eine Pause.",hint:"Nous ___ une pause.",form:"nous faisons",rs:"nu fö-song",full:"Nous faisons une pause.",ok:["faisons","nous faisons","nous faisons une pause"],w:"Wir: nous faisons – ai klingt wie ö: fö-song."},
+{v:"faire = machen",tag:"Futur proche",de:"Ich werde das morgen machen.",hint:"Je ___ ça demain.",form:"je vais faire",rs:"schö wä fär",full:"Je vais faire ça demain.",ok:["vais faire","je vais faire","je vais faire ca demain","je vais faire ça demain"],w:"Futur proche: aller + Infinitiv (faire). Also je vais faire."},
+{v:"faire = machen",tag:"Präsens",de:"Er macht Sport.",hint:"Il ___ du sport.",form:"il fait",rs:"il fä",full:"Il fait du sport.",ok:["fait","il fait","il fait du sport"],w:"3. Person schreibt fait, klingt aber auch fä."},
+{v:"faire = machen",tag:"Verneinung · Passé composé",de:"Ich habe das nicht gemacht.",hint:"___ ça.",form:"je n'ai pas fait",rs:"schö nä pa fä",full:"Je n'ai pas fait ça.",ok:["n'ai pas fait","nai pas fait","n ai pas fait","je n'ai pas fait","je nai pas fait","je n'ai pas fait ca","je n'ai pas fait ça"],w:"ne … pas steht um das Hilfsverb: je n'ai pas fait – nicht *je n'ai fait pas."},
+{v:"faire = machen",tag:"Präsens",de:"Ihr macht das gut.",hint:"Vous ___ ça bien.",form:"vous faites",rs:"wu fät",full:"Vous faites ça bien.",ok:["faites","vous faites","vous faites ca bien","vous faites ça bien"],w:"Besonderheit: vous faites – nicht *vous faisez."},
+{v:"faire = machen",tag:"Präsens",de:"Du machst das.",hint:"Tu ___ ça.",form:"tu fais",rs:"tü fä",full:"Tu fais ça.",ok:["fais","tu fais","tu fais ca","tu fais ça"],w:"Wie je fais: tu fais (tü fä). Schreiben mit s, klingt fä."},
+
+/* aller = gehen */
+{v:"aller = gehen",tag:"Präsens",de:"Ich gehe in den Supermarkt.",hint:"Je ___ au supermarché.",form:"je vais",rs:"schö wä",full:"Je vais au supermarché.",ok:["vais","je vais","je vais au supermarche","je vais au supermarché"],w:"Präsens von aller: je vais. à + le wird zu au."},
+{v:"aller = gehen",tag:"Passé composé",de:"Ich bin ins Büro gegangen.",hint:"Je ___ au bureau.",form:"je suis allé",rs:"schö süi za-le",full:"Je suis allé au bureau.",ok:["suis alle","je suis alle","suis allee","je suis allee","je suis alle au bureau","je suis allee au bureau","suis allé","je suis allé","suis allée","je suis allée"],w:"aller bildet das passé composé mit être, nicht mit avoir: je suis allé / allée."},
+{v:"aller = gehen",tag:"Präsens",de:"Du gehst nach Hause.",hint:"Tu ___ à la maison.",form:"tu vas",rs:"tü wa",full:"Tu vas à la maison.",ok:["vas","tu vas","tu vas a la maison","tu vas à la maison"],w:"Präsens, 2. Person: tu vas (tü wa)."},
+{v:"aller = gehen",tag:"Futur proche",de:"Ich werde morgen ins Büro gehen.",hint:"Je ___ au bureau demain.",form:"je vais aller",rs:"schö wä za-le",full:"Je vais aller au bureau demain.",ok:["vais aller","je vais aller","je vais aller au bureau demain"],w:"Futur proche: aller + Infinitiv (aller). Also je vais aller."},
+{v:"aller = gehen",tag:"Präsens",de:"Sie gehen ins Büro.",hint:"Ils ___ au bureau.",form:"ils vont",rs:"il wong",full:"Ils vont au bureau.",ok:["vont","ils vont","ils vont au bureau","elles vont","elles vont au bureau"],w:"Präsens, sie: ils vont – Kurzstamm wie il va, nicht *ils allez."},
+{v:"aller = gehen",tag:"Verneinung",de:"Wir gehen nicht ins Büro.",hint:"Nous ___ au bureau.",form:"nous n'allons pas",rs:"nu na-long pa",full:"Nous n'allons pas au bureau.",ok:["n'allons pas","nallons pas","n allons pas","nous n'allons pas","nous nallons pas","nous n allons pas","nous n'allons pas au bureau"],w:"n' vor Vokal: ne + allons wird zu n'allons. ne … pas um das Verb."},
+{v:"aller = gehen",tag:"Präsens",de:"Er geht ins Büro.",hint:"Il ___ au bureau.",form:"il va",rs:"il wa",full:"Il va au bureau.",ok:["va","il va","il va au bureau","elle va","elle va au bureau"],w:"Präsens, 3. Person: il / elle va (il wa). à + le wird zu au."},
+{v:"aller = gehen",tag:"Präsens",de:"Sie gehen nach Paris.",hint:"Vous ___ à Paris.",form:"vous allez",rs:"wu sa-le",full:"Vous allez à Paris.",ok:["allez","vous allez","vous allez a paris","vous allez à Paris"],w:"Präsens, ihr/Sie: vous allez – mit Bindung wu sa-le."}
+];
+
+function norm(s){
+  return String(s||"").toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/ç/g,"c")
+    .replace(/[’‘‛ʻ´`]/g,"'")
+    .replace(/'/g,"")
+    .replace(/ß/g,"ss")
+    .replace(/[^a-z0-9]+/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function okset(it){
+  const set=new Set(it.ok.map(norm));
+  set.add(norm(it.form));
+  set.add(norm(it.full));
+  return set;
+}
+function isRight(val,it){
+  const n=norm(val);
+  if(!n) return false;
+  const set=okset(it);
+  if(set.has(n)) return true;
+  /* subject + form already in set; also accept form without leftover punctuation */
+  const form=norm(it.form);
+  const full=norm(it.full);
+  if(n===form||n===full) return true;
+  return false;
+}
+
+const $=id=>document.getElementById(id);
+if(localStorage.getItem("frl_dark")==="1") document.body.classList.add("dark");
+$("dm").onclick=()=>{
+  document.body.classList.toggle("dark");
+  localStorage.setItem("frl_dark",document.body.classList.contains("dark")?"1":"0");
+};
+
+let i=0, score=0, locked=false;
+
+function bar(){
+  const p=i>=ITEMS.length?100:Math.round(i/ITEMS.length*100);
+  document.querySelector("#bar i").style.width=p+"%";
+  $("prog").textContent=i>=ITEMS.length?ITEMS.length+" / "+ITEMS.length:(i+1)+" / "+ITEMS.length;
+}
+
+function render(){
+  locked=false;
+  bar();
+  if(i>=ITEMS.length){ return end(); }
+  const it=ITEMS[i];
+  const hint=it.hint.replace("___","<em>___</em>");
+  $("view").innerHTML=
+    '<div class="card">'+
+      '<h2>'+esc(it.v)+'</h2>'+
+      '<span class="tag">'+esc(it.tag)+'</span>'+
+      '<p class="de">'+esc(it.de)+'</p>'+
+      '<p class="hint">'+hint+'</p>'+
+      '<input class="ans" id="inp" type="text" lang="fr" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Verbform oder kurzer Satz">'+
+      '<p class="mu" style="margin:.6rem 0 0">Tippe die französische Verbform – oder den ganzen Satz.</p>'+
+      '<div id="fb"></div>'+
+    '</div>';
+  $("foot").innerHTML='<button class="pri" id="act">Prüfen</button>';
+  $("act").onclick=check;
+  const inp=$("inp");
+  inp.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); check(); } });
+  setTimeout(()=>inp.focus(),30);
+}
+
+function check(){
+  if(locked){ next(); return; }
+  const it=ITEMS[i];
+  const inp=$("inp");
+  const val=inp.value;
+  if(!norm(val)){ inp.focus(); return; }
+  locked=true;
+  const right=isRight(val,it);
+  if(right) score++;
+  inp.disabled=true;
+  const fb=$("fb");
+  fb.className="fb "+(right?"ok":"bad");
+  fb.innerHTML=
+    (right?'<b>Richtig!</b>':'<b>Nicht ganz.</b>')+
+    '<div style="margin-top:.4rem"><b>'+esc(it.form)+'</b> <span class="rs">('+esc(it.rs)+')</span></div>'+
+    '<div class="mu">'+esc(it.full)+'</div>'+
+    '<div style="margin-top:.5rem"><b>Warum?</b> '+esc(it.w)+'</div>';
+  $("act").textContent = i===ITEMS.length-1 ? "Zum Ergebnis" : "Weiter";
+  $("act").focus();
+}
+
+function next(){
+  i++;
+  render();
+}
+
+function end(){
+  bar();
+  $("view").innerHTML=
+    '<div class="card">'+
+      '<h2>Ergebnis</h2>'+
+      '<div class="score">'+score+' / '+ITEMS.length+'</div>'+
+      '<p style="text-align:center">Du hast <b>'+score+'</b> von <b>'+ITEMS.length+'</b> richtig.</p>'+
+      '<button class="pri big" id="again">Noch einmal üben</button>'+
+      '<a class="back" href="../index.html">Zurück zum Menü</a>'+
+    '</div>';
+  $("foot").innerHTML="";
+  $("again").onclick=()=>{ i=0; score=0; render(); };
+}
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+render();
+})();
+</script>
+</body></html>
