@@ -1,16 +1,60 @@
 {
- "updated": "2026-10-26",
- "streak": 3,
+ "updated": "2026-11-26",
+ "streak": 0,
  "bestStreak": 3,
- "totalXP": 315,
+ "totalXP": 375,
  "weeks": [
   {
-   "week": "2026-W44",
-   "from": "2026-10-26",
+   "week": "2026-W48",
+   "from": "2026-11-23",
    "days": {},
    "xp": 0,
    "lessons": 0,
    "errorsByType": {}
+  },
+  {
+   "week": "2026-W47",
+   "from": "2026-11-16",
+   "days": {},
+   "xp": 0,
+   "lessons": 0,
+   "errorsByType": {}
+  },
+  {
+   "week": "2026-W46",
+   "from": "2026-11-09",
+   "days": {},
+   "xp": 0,
+   "lessons": 0,
+   "errorsByType": {}
+  },
+  {
+   "week": "2026-W45",
+   "from": "2026-11-02",
+   "days": {},
+   "xp": 0,
+   "lessons": 0,
+   "errorsByType": {}
+  },
+  {
+   "week": "2026-W44",
+   "from": "2026-10-26",
+   "days": {
+    "2026-10-26": 0,
+    "2026-10-27": 0,
+    "2026-10-28": 0,
+    "2026-10-29": 0,
+    "2026-10-30": 0,
+    "2026-10-31": 60,
+    "2026-11-01": 0
+   },
+   "xp": 60,
+   "lessons": 1,
+   "errorsByType": {
+    "Genus": 3,
+    "Zeiten/Verbform": 1,
+    "Vokabel": 1
+   }
   },
   {
    "week": "2026-W43",
