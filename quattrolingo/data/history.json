@@ -1,0 +1,83 @@
+{
+  "updated": "2026-11-26",
+  "note": "Ein Eintrag pro eingesandtem Ergebnis. date = Tag des Ergebnisses, nicht das Lektionsdatum. Bei Wiederholungen neuen Eintrag anhängen (repeat: true), nie den alten überschreiben.",
+  "entries": [
+    {
+      "date": "2026-10-21",
+      "id": "Test-leise-L1",
+      "slot": "",
+      "xp": 30,
+      "correct": 3,
+      "total": 6,
+      "errors": {
+        "Zeiten/Verbform": 1,
+        "Genus": 2
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "id": "2026-10-23_Morgen",
+      "slot": "Morgen",
+      "xp": 50,
+      "correct": 5,
+      "total": 12,
+      "errors": {
+        "Zeiten/Verbform": 3,
+        "Genus": 2,
+        "Wortstellung": 1
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "id": "2026-10-24_Abend_leise",
+      "slot": "Abend",
+      "xp": 125,
+      "correct": 4,
+      "total": 13,
+      "secondTry": 5,
+      "errors": {
+        "Zeiten/Verbform": 1,
+        "Genus": 3,
+        "Wortstellung": 2,
+        "Präposition": 1
+      }
+    },
+    {
+      "date": "2026-10-25",
+      "id": "2026-10-22_Morgen",
+      "slot": "Morgen",
+      "xp": 70,
+      "correct": 7,
+      "total": 11,
+      "errors": {
+        "Zeiten/Verbform": 2,
+        "Genus": 2
+      }
+    },
+    {
+      "date": "2026-10-25",
+      "id": "2026-10-25_5MIN",
+      "slot": "5MIN",
+      "xp": 40,
+      "correct": 4,
+      "total": 5,
+      "errors": {
+        "Zeiten/Verbform": 1
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "id": "2026-10-22_Morgen",
+      "slot": "Morgen",
+      "xp": 60,
+      "correct": 6,
+      "total": 11,
+      "repeat": true,
+      "errors": {
+        "Genus": 3,
+        "Zeiten/Verbform": 1,
+        "Vokabel": 1
+      }
+    }
+  ]
+}
