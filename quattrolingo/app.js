@@ -9,13 +9,26 @@ function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'
 var TODAY=iso(new Date()),WD=['So','Mo','Di','Mi','Do','Fr','Sa'];
 function dlabel(s){var d=new Date(s+'T12:00');return WD[d.getDay()]+' '+d.getDate()+'.'+(d.getMonth()+1)+'.'}
 function get(p){return fetch(p+'?v='+Date.now()).then(function(r){return r.json()})}
-var L=[],ST={done:{}},STA={},FE={items:[]};
-Promise.all([get('data/lessons.json'),get('data/status.json'),get('data/stats.json'),get('data/fehler.json')]).then(function(r){L=r[0];ST=r[1];STA=r[2];FE=r[3];init()}).catch(function(e){$('#tabs').innerHTML='<p class="mut">Daten konnten nicht geladen werden.</p>'});
+var L=[],ST={done:{}},STA={},FE={items:[]},HI={entries:[]};
+function getOpt(p,fb){return get(p).catch(function(){return fb})}
+Promise.all([get('data/lessons.json'),get('data/status.json'),get('data/stats.json'),get('data/fehler.json'),getOpt('data/history.json',{entries:[]})]).then(function(r){L=r[0];ST=r[1];STA=r[2];FE=r[3];HI=r[4]||{entries:[]};init()}).catch(function(e){$('#tabs').innerHTML='<p class="mut">Daten konnten nicht geladen werden.</p>'});
 function key(m){return m.kind==='tag'?m.date+'_'+m.slot:m.id}
 function isDone(m){if(ST.done[m.id])return true;if(m.kind==='tag'){for(var k in ST.done){if(k.indexOf(key(m))===0)return true}}return false}
 function stat(m){if(isDone(m))return['done','✅ erledigt'];if(ls('fr-fertig-'+m.id))return['','📤 fertig – noch senden'];return['','offen']}
+function iconOf(m){if(m.icon)return m.icon;var s=((m.id||'')+' '+(m.title||'')).toLowerCase();
+ var pairs=[[/baeckerei|bäckerei|cafe|café/,'🥐'],[/arzttermin|arzt\b/,'📅'],[/flughafen/,'🛫'],[/friseur/,'✂️'],[/museum/,'🖼️'],[/kleidung/,'👕'],[/geschaeft|geschäft|telefonat|kunde/,'💼'],[/urlaub|hotel|checkin/,'🧳'],[/musikverein|konzert/,'🎵'],[/fussball|fußball/,'⚽'],[/3d-druck/,'🖨️'],[/politik/,'🏛️'],[/kochen/,'🍳'],[/halloween/,'🎃'],[/formel/,'🏎️'],[/triathlon/,'🏅'],[/werkstatt|auto_/,'🔧'],[/aktien/,'📈'],[/grill/,'🔥'],[/bahn/,'🚆'],[/rennrad/,'🚴'],[/mountainbike/,'🚵'],[/joggen|marathon/,'🏃'],[/schwimmen|kraul/,'🏊'],[/handwerker|wohnung/,'🏠'],[/einkaufen|markt/,'🛒'],[/vorstellungs|gehalt/,'💼'],[/ortschaftsrat/,'🏘️'],[/ski|winterurlaub/,'⛷️'],[/feier/,'🎉'],[/behoerde|behörde/,'📋'],[/technik|_ki/,'🤖'],[/wetter/,'🌦️'],[/smalltalk|party/,'💬'],[/restaurant|allergie/,'🍽️'],[/paket|post|retoure/,'📦'],[/fitness/,'💪'],[/wegbeschreibung/,'🗺️'],[/nachbarn/,'🏡'],[/geburtstag/,'🎂'],[/studium|master/,'📚']];
+ for(var i=0;i<pairs.length;i++) if(pairs[i][0].test(s)) return pairs[i][1];
+ if(m.kind==='tag') return m.slot==='Morgen'?'🌅':m.slot==='Mittag'?'☀️':'🌙';
+ return m.silent?'🔇':'🔊'}
+function toneOf(m){if(m.tone)return m.tone;var s=m.id||m.title||'',n=0;for(var i=0;i<s.length;i++)n=(n+s.charCodeAt(i)*(i+1))%8;return 't'+n}
+function isNew(m){return m.kind==='vorrat'&&m.nr>=41&&m.nr<=46}
 function row(m){var s=stat(m),t=m.kind==='tag'?(m.slot+(m.id.indexOf('_leise')>0?' (leise)':'')):('V'+m.nr+' · '+m.title);
- return '<a class="les '+s[0]+'" href="'+m.file+'"><span>'+(m.silent?'🔇':'🔊')+'</span><span class="n">'+esc(t)+'</span><span class="st">'+s[1]+'</span></a>'}
+ var cls='les '+s[0]+' '+toneOf(m)+(s[0]?'':'')+(s[1].indexOf('senden')>=0?' send':'');
+ var sub=m.kind==='tag'?((m.silent?'Ohne Audio':'Mit Audio')+(m.date?' · '+dlabel(m.date):'')):(isNew(m)?'Neue allgemeine Lektion':(m.hasAudio?'Mit Audio und Hördiktat':'Übung'));
+ var st=isNew(m)&&s[1]==='offen'?'neu':'';
+ var snd=m.kind==='tag'||m.hasAudio?(m.silent?'🔇':'🔊')+' · ':'';
+ return '<a class="'+cls+'" href="'+m.file+'"><span class="lico" aria-hidden="true">'+iconOf(m)+'</span><span class="nwrap"><span class="n">'+esc(t)+'</span><span class="sub">'+snd+esc(sub)+'</span><span class="prog" aria-hidden="true"><i></i></span></span><span class="st'+(st?' neu':'')+'">'+ (st?'neu':s[1])+'</span></a>'}
+
 function days(){var d={};L.filter(function(m){return m.kind==='tag'}).forEach(function(m){(d[m.date]=d[m.date]||[]).push(m)});return d}
 function tab(t){document.querySelectorAll('.big3 button').forEach(function(b){b.classList.toggle('on',b.dataset.tab===t)});var h='',D=days(),ks=Object.keys(D).sort().reverse();
  if(t==='heute'){var show=ks.filter(function(k){return k<=TODAY}).slice(0,1);if(D[TODAY])show=[TODAY];
@@ -71,12 +84,18 @@ function end(){$('#qfill').style.width='100%';var ok=Q.log.filter(function(l){re
  $('#qsd').onclick=function(){location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('FR-ERGEBNIS '+lid)+'&body='+encodeURIComponent(txt)};
  $('#qskip').style.display='none';$('#qact').textContent='Zurück zum Menü';$('#qact').onclick=close}
 /* Wochenpokal */
-function pokal(){var W=STA.weeks||[],w=W[0]||{days:{}},p=W[1]||{xp:0},ds=Object.keys(w.days||{}).sort(),mx=Math.max.apply(null,ds.map(function(k){return w.days[k]}).concat([10]));
- var et=w.errorsByType||{},top=Object.keys(et).sort(function(a,b){return et[b]-et[a]}).slice(0,3),diff=(w.xp||0)-(p.xp||0);
- var got={};(STA.badges||[]).forEach(function(b){got[b.id]=b});
+function mondayOf(s){var d=new Date(s+'T12:00'),diff=(d.getDay()+6)%7;d.setDate(d.getDate()-diff);return iso(d)}
+function daysXp(from){var ds=[],map={},i,k;for(i=0;i<7;i++){k=addDays(from,i);ds.push(k);map[k]=0}
+ (HI.entries||[]).forEach(function(e){if(map.hasOwnProperty(e.date))map[e.date]+=(e.xp||0)});
+ return {ds:ds,map:map,xp:ds.reduce(function(a,k){return a+map[k]},0)}}
+function pokal(){var mon=mondayOf(TODAY),cur=daysXp(mon),W=STA.weeks||[],w=W[0]||{days:{},xp:0,lessons:0},p=W[1]||{xp:0};
+ var ds=cur.ds,map=cur.map,weekXp=cur.xp||w.xp||0,mx=Math.max.apply(null,ds.map(function(k){return map[k]}).concat([10]));
+ var et=w.errorsByType||{},top=Object.keys(et).sort(function(a,b){return et[b]-et[a]}).slice(0,3),diff=weekXp-(p.xp||0);
+ var best=W.reduce(function(a,x){return (x.xp||0)>(a.xp||0)?x:a},{xp:0}),got={};(STA.badges||[]).forEach(function(b){got[b.id]=b});
  var all=[{id:'start',icon:'🌱',name:'Erste Lektion'},{id:'streak3',icon:'🔥',name:'3 Tage Streak',c:STA.bestStreak>=3},{id:'streak10',icon:'🔥🔥',name:'10 Tage Streak',c:STA.bestStreak>=10},{id:'xp500',icon:'⭐',name:'500 XP',c:STA.totalXP>=500},{id:'xp1000',icon:'🌟',name:'1000 XP',c:STA.totalXP>=1000},{id:'genus',icon:'🎩',name:'Genus-Meister'},{id:'zeiten',icon:'⏰',name:'Zeiten-Profi'},{id:'woche7',icon:'🗓️',name:'7 Tage am Stück',c:STA.bestStreak>=7}];
- $('#pokalBody').innerHTML='<div class="bars">'+ds.map(function(k){var v=w.days[k];return '<div><span>'+(v||'')+'</span><i style="height:'+Math.round(v/mx*80)+'px"></i>'+WD[new Date(k+'T12:00').getDay()]+'</div>'}).join('')+'</div>'+
- '<p><b>'+(w.xp||0)+' XP</b> diese Woche · '+(w.lessons||0)+' Lektionen · 🔥 '+(STA.streak||0)+' Tage<br><span class="mut">Vorwoche: '+(p.xp||0)+' XP ('+(diff>=0?'+':'')+diff+')</span></p>'+
+ var empty=weekXp===0?('<div class="pokal-empty"><div class="trophy" aria-hidden="true">🏆</div><p><b>Diese Woche noch keine XP.</b><br><span class="mut">Deine beste Woche: '+(best.xp||0)+' XP'+(best.from?' (ab '+dlabel(best.from)+')':'')+'. Ein kleiner Block reicht, dann füllen sich die Balken.</span></p></div>'):'';
+ $('#pokalBody').innerHTML=empty+'<div class="bars">'+ds.map(function(k){var v=map[k]||0,h=Math.max(4,Math.round(v/mx*80));return '<div><span>'+(v||'')+'</span><i class="'+(v?'':'zero')+'" style="height:'+h+'px"></i>'+WD[new Date(k+'T12:00').getDay()]+'</div>'}).join('')+'</div>'+
+ '<p><b>'+weekXp+' XP</b> diese Woche · '+(w.lessons||0)+' Lektionen · 🔥 '+(STA.streak||0)+' Tage<br><span class="mut">Vorwoche: '+(p.xp||0)+' XP ('+(diff>=0?'+':'')+diff+')</span></p>'+
  (top.length?'<p><b>Top-3-Schwachstellen:</b> '+top.map(function(t){return esc(t)+' ('+et[t]+')'}).join(', ')+'</p>':'')+
  '<div class="badges">'+all.map(function(b){var h=got[b.id]||b.c;return '<span class="badge'+(h?'':' no')+'">'+b.icon+' '+b.name+'</span>'}).join('')+'</div>'}
 })();

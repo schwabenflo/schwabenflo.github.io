@@ -4,15 +4,20 @@
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Quattrolingo"><meta name="theme-color" content="#4f6bff">
 <link rel="stylesheet" href="app.css"></head><body>
 <header><div class="hrow"><h1>🇫🇷 Quattrolingo</h1><button id="th" class="ic" aria-label="Hell/Dunkel">🌙</button></div>
-<div class="kpi"><div><b id="kw">–</b>Woche XP</div><div><b id="kt">–</b>Gesamt XP</div><div><b id="ks">–</b>🔥 Streak</div></div>
+<div class="kpi" role="navigation" aria-label="Statistik">
+<a href="statistik.html"><b id="kw">–</b>Woche XP</a>
+<a href="statistik.html"><b id="kt">–</b>Gesamt XP</a>
+<a href="statistik.html"><b id="ks">–</b>🔥 Streak</a>
+</div>
 <a id="last" class="last" style="display:none"></a></header>
 <main>
 <div id="remind" class="card warn" style="display:none"></div>
 <div class="big3"><button data-tab="heute" class="on">📅<br>Heute</button><button data-tab="vorrat">📦<br>Vorrat</button><button data-tab="archiv">🗂️<br>Archiv</button></div>
 <button id="fiveBtn" class="cta">⚡ Fünf-Minuten-Modus</button>
-<a class="les stat-tile" href="statistik.html"><span>📊</span><span class="n">Statistik</span><span class="st">Kalender &amp; Analyse</span></a>
-<a class="les stat-tile" href="wiederholung.html" id="wdhTile"><span>🔁</span><span class="n">Wiederholung</span><span class="st" id="wdhCount">Im Abstand 1 · 3 · 7 Tage</span></a>
-<a class="les" href="l/konjugation-unregelmaessig.html"><span class="n">Konjugation: être, avoir, faire, aller</span><span class="st">Übung</span></a>
+<div class="day">Werkzeuge</div>
+<a class="les t-stat" href="statistik.html"><span class="lico" aria-hidden="true">📊</span><span class="nwrap"><span class="n">Statistik</span><span class="sub">Jahreskalender, Serie und Analyse</span></span><span class="st">öffnen</span></a>
+<a class="les t-wdh" href="wiederholung.html" id="wdhTile"><span class="lico" aria-hidden="true">🔁</span><span class="nwrap"><span class="n">Wiederholung</span><span class="sub">Im Abstand 1 · 3 · 7 Tage</span></span><span class="st" id="wdhCount">lädt …</span></a>
+<a class="les t-konj" href="l/konjugation-unregelmaessig.html"><span class="lico" aria-hidden="true">🔤</span><span class="nwrap"><span class="n">Konjugation: être, avoir, faire, aller</span><span class="sub">Tippen, Zeiten und Verneinung</span></span><span class="st">Übung</span></a>
 <section id="tabs"></section>
 <section class="card" id="fehlerCard"><h2>🎯 Deine Fehler</h2><div id="fehlerList" class="mut">lädt …</div></section>
 <section class="card" id="pokal"><h2>🏆 Wochenpokal</h2><div id="pokalBody"></div></section>
