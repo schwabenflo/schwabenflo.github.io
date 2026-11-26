@@ -450,5 +450,71 @@
   "hasAudio": true,
   "file": "l/V40_Studium_Masterarbeit.html",
   "kb": 602
+ },
+ {
+  "id": "V41_Baeckerei_Cafe",
+  "kind": "vorrat",
+  "nr": 41,
+  "title": "Bäckerei & Café",
+  "hasAudio": true,
+  "file": "l/V41_Baeckerei_Cafe.html",
+  "kb": 174,
+  "icon": "🥐",
+  "tone": "t1"
+ },
+ {
+  "id": "V42_Arzttermin",
+  "kind": "vorrat",
+  "nr": 42,
+  "title": "Arzttermin vereinbaren",
+  "hasAudio": true,
+  "file": "l/V42_Arzttermin.html",
+  "kb": 183,
+  "icon": "📅",
+  "tone": "t0"
+ },
+ {
+  "id": "V43_Am_Flughafen",
+  "kind": "vorrat",
+  "nr": 43,
+  "title": "Am Flughafen",
+  "hasAudio": true,
+  "file": "l/V43_Am_Flughafen.html",
+  "kb": 185,
+  "icon": "🛫",
+  "tone": "t6"
+ },
+ {
+  "id": "V44_Beim_Friseur",
+  "kind": "vorrat",
+  "nr": 44,
+  "title": "Beim Friseur",
+  "hasAudio": true,
+  "file": "l/V44_Beim_Friseur.html",
+  "kb": 168,
+  "icon": "✂️",
+  "tone": "t4"
+ },
+ {
+  "id": "V45_Im_Museum",
+  "kind": "vorrat",
+  "nr": 45,
+  "title": "Im Museum",
+  "hasAudio": true,
+  "file": "l/V45_Im_Museum.html",
+  "kb": 183,
+  "icon": "🖼️",
+  "tone": "t4"
+ },
+ {
+  "id": "V46_Kleidung_kaufen",
+  "kind": "vorrat",
+  "nr": 46,
+  "title": "Kleidung kaufen",
+  "hasAudio": true,
+  "file": "l/V46_Kleidung_kaufen.html",
+  "kb": 179,
+  "icon": "👕",
+  "tone": "t5"
  }
 ]
