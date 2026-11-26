@@ -34,7 +34,7 @@ function tab(t){document.querySelectorAll('.big3 button').forEach(function(b){b.
  if(t==='heute'){var show=ks.filter(function(k){return k<=TODAY}).slice(0,1);if(D[TODAY])show=[TODAY];
   show.forEach(function(k){h+='<div class="day">'+(k===TODAY?'Heute, ':'Zuletzt: ')+dlabel(k)+'</div>'+D[k].map(row).join('')});
   var open=openList().filter(function(m){return show.indexOf(m.date)<0});if(open.length)h+='<div class="day">Noch offen</div>'+open.map(function(m){return row(m).replace('<span class="n">','<span class="n">'+dlabel(m.date)+' ')}).join('');}
- if(t==='vorrat')h='<div class="day">Vorrat – Themen zum Üben, wann du willst</div>'+L.filter(function(m){return m.kind==='vorrat'}).map(row).join('');
+ if(t==='vorrat'){var vs=L.filter(function(m){return m.kind==='vorrat'}).slice().sort(function(a,b){var na=isNew(a)?0:1,nb=isNew(b)?0:1;return na-nb||(a.nr||0)-(b.nr||0)});h='<div class="day">Vorrat – Themen zum Üben, wann du willst</div>'+vs.map(row).join('');}
  if(t==='archiv')ks.forEach(function(k){h+='<div class="day">'+dlabel(k)+'</div>'+D[k].map(row).join('')});
  $('#tabs').innerHTML=h;ls('fr-tab',t)}
 function openList(){var seen={},out=[];L.filter(function(m){return m.kind==='tag'&&m.date>=addDays(TODAY,-3)}).forEach(function(m){var k=key(m);if(seen[k])return;seen[k]=1;if(!isDone(m))out.push(m)});return out}
@@ -44,7 +44,7 @@ function wdhBadge(){get('data/wiederholung.json').then(function(W){var n=(W.item
 function init(){wdhBadge();var w=(STA.weeks||[])[0]||{};$('#kw').textContent=w.xp||0;$('#kt').textContent=STA.totalXP||0;$('#ks').textContent=(STA.streak||0)+' T';
  try{var la=JSON.parse(ls('fr-last')||'null');if(la){var a=$('#last');a.href=la.href;a.textContent='▶ Weiter mit zuletzt geöffnet: '+la.title;a.style.display='block'}}catch(e){}
  var op=openList();if(op.length>=2){$('#remind').style.display='block';$('#remind').innerHTML='⏳ <b>Du hast noch '+op.length+' Lektionen offen</b> ('+op.map(function(m){return dlabel(m.date)+' '+m.slot}).join(', ')+'). Willst du die erst nachholen? Solange gibt es keine neuen.'}
- document.querySelectorAll('.big3 button').forEach(function(b){b.onclick=function(){tab(b.dataset.tab)}});tab(ls('fr-tab')||'heute');
+ document.querySelectorAll('.big3 button').forEach(function(b){b.onclick=function(){tab(b.dataset.tab);if(history.replaceState)history.replaceState(null,'','#'+b.dataset.tab)}});var ht=location.hash.replace('#','');tab((ht==='vorrat'||ht==='archiv'||ht==='heute')?ht:(ls('fr-tab')||'heute'));
  fehler();pokal();$('#fiveBtn').onclick=function(){start(pick5(),'5MIN')};
  if(new Date().getDay()===0){var p=$('#pokal');p.parentNode.insertBefore(p,$('.big3'));p.querySelector('h2').textContent='🏆 Wochenpokal – Sonntag!'}}
 function fehler(){var it=FE.items.slice().sort(function(a,b){return a.due<b.due?-1:1});if(!it.length){$('#fehlerList').innerHTML='Keine offenen Fehler. Stark! 💪';return}
