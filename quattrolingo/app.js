@@ -26,7 +26,9 @@ function tab(t){document.querySelectorAll('.big3 button').forEach(function(b){b.
  $('#tabs').innerHTML=h;ls('fr-tab',t)}
 function openList(){var seen={},out=[];L.filter(function(m){return m.kind==='tag'&&m.date>=addDays(TODAY,-3)}).forEach(function(m){var k=key(m);if(seen[k])return;seen[k]=1;if(!isDone(m))out.push(m)});return out}
 function addDays(s,n){var d=new Date(s+'T12:00');d.setDate(d.getDate()+n);return iso(d)}
-function init(){var w=(STA.weeks||[])[0]||{};$('#kw').textContent=w.xp||0;$('#kt').textContent=STA.totalXP||0;$('#ks').textContent=(STA.streak||0)+' T';
+
+function wdhBadge(){get('data/wiederholung.json').then(function(W){var n=(W.items||[]).filter(function(it){return it.status!=='sicher'&&it.due<=TODAY}).length;var el=$('#wdhCount');if(!el)return;if(n){el.textContent=n+' fällig';el.classList.add('due')}else{var later=(W.items||[]).filter(function(it){return it.status!=='sicher'}).length;el.textContent=later?'Nichts fällig':'Alles sicher'}}).catch(function(){})}
+function init(){wdhBadge();var w=(STA.weeks||[])[0]||{};$('#kw').textContent=w.xp||0;$('#kt').textContent=STA.totalXP||0;$('#ks').textContent=(STA.streak||0)+' T';
  try{var la=JSON.parse(ls('fr-last')||'null');if(la){var a=$('#last');a.href=la.href;a.textContent='▶ Weiter mit zuletzt geöffnet: '+la.title;a.style.display='block'}}catch(e){}
  var op=openList();if(op.length>=2){$('#remind').style.display='block';$('#remind').innerHTML='⏳ <b>Du hast noch '+op.length+' Lektionen offen</b> ('+op.map(function(m){return dlabel(m.date)+' '+m.slot}).join(', ')+'). Willst du die erst nachholen? Solange gibt es keine neuen.'}
  document.querySelectorAll('.big3 button').forEach(function(b){b.onclick=function(){tab(b.dataset.tab)}});tab(ls('fr-tab')||'heute');

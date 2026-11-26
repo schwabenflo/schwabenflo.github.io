@@ -72,3 +72,5 @@ a.back{text-decoration:none;display:inline-flex;align-items:center;justify-conte
 .tod-card.best{outline:2px solid var(--ok);background:var(--okb)}
 .tod-ico{font-size:1.3rem}
 .tod-pct{font-size:1.45rem;font-weight:800;margin:.2rem 0}
+
+.les .st.due{background:var(--wb);color:#8a5a00;font-weight:700}
